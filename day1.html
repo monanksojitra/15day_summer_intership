@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Records - India</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h2 class="mb-4">COVID-19 Records - India</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Current Cases</th>
+                    <th>Recovery Cases</th>
+                    <th>Recovery Strength (%)</th>
+                    <th>Death Cases</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- JavaScript code to populate the table using traditional for...in loop -->
+                <script>
+                    const covidRecord = {
+                        "Mumbai": {
+                            "currentCases": 12000,
+                            "recoveryCases": 10500,
+                            "recoveryStrength": ((10500 / 12000) * 100).toFixed(2),
+                            "deathCases": 900
+                        },
+                        "Delhi": {
+                            "currentCases": 9800,
+                            "recoveryCases": 8500,
+                            "recoveryStrength": ((8500 / 9800) * 100).toFixed(2),
+                            "deathCases": 600
+                        },
+                        "Bengaluru": {
+                            "currentCases": 7500,
+                            "recoveryCases": 6800,
+                            "recoveryStrength": ((6800 / 7500) * 100).toFixed(2),
+                            "deathCases": 300
+                        },
+                        "Chennai": {
+                            "currentCases": 5800,
+                            "recoveryCases": 5200,
+                            "recoveryStrength": ((5200 / 5800) * 100).toFixed(2),
+                            "deathCases": 200
+                        },
+                        "Kolkata": {
+                            "currentCases": 4200,
+                            "recoveryCases": 3800,
+                            "recoveryStrength": ((3800 / 4200) * 100).toFixed(2),
+                            "deathCases": 150
+                        }
+                    };
+
+                    // Get the table body element
+                    const tbody = document.querySelector('tbody');
+
+                    // Traditional for...in loop to populate the table
+                    for (const city in covidRecord) {
+                        if (covidRecord.hasOwnProperty(city)) {
+                            const cityData = covidRecord[city];
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                <td>${city}</td>
+                <td>${cityData.currentCases}</td>
+                <td>${cityData.recoveryCases}</td>
+                <td>${cityData.recoveryStrength}%</td>
+                <td>${cityData.deathCases}</td>
+              `;
+                            tbody.appendChild(row);
+                        }
+                    }
+                </script>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Link Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

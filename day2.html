@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+    <script>
+        function one() { }
+
+        function two(a, b) { }
+        function three() {
+            return null;
+        }
+        function four(a, b) {
+            return a + b;
+        }
+
+        one();
+        two(1, 2);
+        three();
+        four(1, 3);
+
+        var aero1 = () => { };
+        var aero2 = (a, b) => {
+            document.write(a, b);
+        };
+        var aero3 = () => {
+            return "hello";
+        };
+        var aero4 = (a, b) => {
+            return a + b;
+        };
+
+        var url2 = "https://api.mfapi.in/mf";
+        var url3 = "https://api.coindesk.com/v1/bpi/currentprice.json";
+        var url4 = "https://data.covid19india.org/data.json";
+
+        async function feachdata1() {
+            let mydata1 = await (await fetch(url2)).json();
+            document.write('<table border=1 class="table table-bordered">');
+            mydata1.forEach((e) => {
+                document.write(
+                    "<tr><td>" +
+                    e["schemeCode"] +
+                    "</td><td>" +
+                    e["schemeName"] +
+                    "</td></tr>"
+                );
+            });
+            document.write("</table>");
+        }
+
+        // feachdata1();
+
+        async function feachdata2() {
+            let mydata2 = await (await fetch(url3)).json();
+            document.write("<table border=1>");
+
+            document.write(
+                "<tr><td>" +
+                mydata2["time"]["updated"] +
+                "</td><td>" +
+                mydata2["disclaimer"] +
+                "</td></tr>"
+            );
+            document.write(
+                "<tr><td>" +
+                mydata2["chartName"] +
+                "</td><td>" +
+                mydata2["bpi"]["USD"]["rate"] +
+                "</td></tr>"
+            );
+            document.write("</table>");
+        }
+        // feachdata2();
+        async function feachdata3() {
+            let mydata3 = await (await fetch(url4)).json();
+            document.write("<table border=1>");
+            document.write(
+                "<tr><td>date</td><td>dailyconfirmed</td><td>dailydeceased</td><td>dailyrecovered</td><td>totalconfirmed</td><td>totaldeceased</td><td>totalrecovered</td></tr > "
+            );
+
+            mydata3["cases_time_series"].forEach((element) => {
+                document.write(
+                    "<tr><td>" +
+                    element["date"] +
+                    "</td><td>" +
+                    element["dailyconfirmed"] +
+                    "</td><td>" +
+                    element["dailydeceased"] +
+                    "</td><td>" +
+                    element["dailyrecovered"] +
+                    "</td><td>" +
+                    element["totalconfirmed"] +
+                    "</td><td>" +
+                    element["totaldeceased"] +
+                    "</td><td>" +
+                    element["totalrecovered"] +
+                    "</td></tr>"
+                );
+            });
+            document.write("</th>");
+        }
+        // feachdata3();
+
+        async function feachdata4() {
+            let mydata3 = await (await fetch(url4)).json();
+            document.write("<table border=1>");
+            document.write(
+                "<tr><td>state</td><td>dailyconfirmed</td><td>dailyrecovered</td></tr > "
+            );
+
+            for (let element = 0; element < mydata3["statewise"].length; element++) {
+
+                console.log(mydata3["statewise"][element]["state"])
+
+
+                document.write(
+                    " <tr><td> " + mydata3["statewise"][element]["state"] +
+                    " </td><td> " + mydata3["statewise"][element]["deltaconfirmed"] + "<span style='color:red'> ( -" + mydata3["statewise"][element]["deltadeaths"] + ")</span>" +
+                    "  </td><td> " + mydata3["statewise"][element]["recovered"] + "<span style='color:green'> (+" + mydata3["statewise"][element]["deltarecovered"] + ")</span>" + " </td></tr > "
+
+                )
+
+            }
+
+
+
+            document.write("</th>");
+        }
+        feachdata4();
+    </script>
+    <!-- Link Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
