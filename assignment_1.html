@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID Data Check</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- COVID DATA CHECH -->
+
+    <!-- <div class="container mt-5 w-50">
+        <h1 class="mb-4">COVID Data Check</h1>
+        <form action="#" id="form1">
+            <div class="mb-3">
+                <label for="newdate" class="form-label">Select Date</label>
+                <input type="date" id="newdate" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Check</button>
+        </form>
+        <p id="info" class="mt-3"></p>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>New Cases</th>
+                    <th>New Deaths</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div> -->
+
+
+    <!-- COVID DATA CHECH -->
+    <!-- <script>
+        document.getElementById('form1').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            var status = document.getElementById('info');
+            var tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = ''; // Clear previous table data
+            var url = "https://data.covid19india.org/data.json";
+            let jsondata = await (await fetch(url)).json();
+            var finddate = document.getElementById('newdate').value;
+            if (finddate !== '') {
+                var foundData = jsondata["cases_time_series"].find(e => e['dateymd'] === finddate);
+                if (foundData) {
+                    var newRow = document.createElement('tr');
+                    newRow.innerHTML = "<td>" + foundData['dailyconfirmed'] + "</td><td>" + foundData['dailydeceased'] + "</td>";
+                    tableBody.appendChild(newRow);
+                    status.innerHTML = ""; // Clear any previous error message
+                } else {
+                    status.innerHTML = "No data found for the selected date.";
+                }
+            } else {
+                status.innerHTML = "Please enter a valid date.";
+            }
+        });
+    </script> -->
+
+    <!-- MUTUAL FUND  -->
+    <!-- <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="#" id="form2" class="mb-3">
+                    <div class="input-group">
+                        <input type="number" name="num" id="num" class="form-control" placeholder="Enter scheme code">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                <h3 id="info" class="text-center"></h3>
+                <p id="loading-text" class="text-center" style="display: none;">Loading...</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.getElementById('form2').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            var info = document.getElementById('info');
+            var loadingText = document.getElementById('loading-text');
+            var url = 'https://api.mfapi.in/mf';
+            var number = document.getElementById('num').value;
+            var myjson = await (await fetch(url)).json();
+            loadingText.style.display = 'block'; // Show loading text while fetching data
+            info.innerHTML = ''; // Clear the info message
+            if (number !== '') {
+                var foundScheme = myjson.find(e => number == e['schemeCode']);
+                if (foundScheme) {
+                    info.innerHTML = `${foundScheme['schemeCode']} : ${foundScheme['schemeName']}`;
+                } else {
+                    info.innerHTML = 'Scheme not found!';
+                }
+            } else {
+                info.innerHTML = '';
+            }
+            loadingText.style.display = 'none'; // Hide loading text after fetching data
+        });
+    </script> -->
+
+
+
+    
+    <!-- Bootstrap JS and Custom Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
