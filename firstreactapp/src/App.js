@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { New_class } from "./components/class/addmethos";
+import Mapmathodexe from "./components/class/Mapmathodexe";
+import Coviddata from "./components/class/Coviddata";
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function Welcome() {
   return (
     <div>
       <h3>welcome user how are you ? in add 2nd function</h3>
-      <New_class />
+      {/* <New_class /> */}
+      {/* <Mapmathodexe/> */}
+      <Coviddata />
     </div>
   );
 }
