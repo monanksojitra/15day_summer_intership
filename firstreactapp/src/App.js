@@ -3,6 +3,9 @@ import "./App.css";
 import { New_class } from "./components/class/addmethos";
 import Mapmathodexe from "./components/class/Mapmathodexe";
 import Coviddata from "./components/class/Coviddata";
+import Calculator from "./miniproject/Calculator";
+import Quiz from "./miniproject/Quize";
+import Properex from "./components/class/Properex";
 
 function App() {
   return (
@@ -15,10 +18,13 @@ function App() {
 function Welcome() {
   return (
     <div>
-      <h3>welcome user how are you ? in add 2nd function</h3>
+      {/* <h3>welcome user how are you ? in add 2nd function</h3> */}
       {/* <New_class /> */}
       {/* <Mapmathodexe/> */}
       <Coviddata />
+      {/* <Calculator /> */}
+      {/* <Quiz /> */}
+      <Properex name="monak"/>
     </div>
   );
 }
