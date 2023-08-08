@@ -6,6 +6,7 @@ import Coviddata from "./components/class/Coviddata";
 import Calculator from "./miniproject/Calculator";
 import Quiz from "./miniproject/Quize";
 import Properex from "./components/class/Properex";
+import NewsCards from "./components/NewsCards";
 
 function App() {
   return (
@@ -21,10 +22,11 @@ function Welcome() {
       {/* <h3>welcome user how are you ? in add 2nd function</h3> */}
       {/* <New_class /> */}
       {/* <Mapmathodexe/> */}
-      <Coviddata />
+      {/* <Coviddata /> */}
       {/* <Calculator /> */}
       {/* <Quiz /> */}
-      <Properex name="monak"/>
+      {/* <Properex name="monak"/> */}
+      <NewsCards />
     </div>
   );
 }
